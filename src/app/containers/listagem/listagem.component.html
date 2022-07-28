@@ -5,4 +5,4 @@
   color="primary" 
   [routerLink]="'/produto'">Novo Produto</button>
 </header>
-<app-table [dataSource]="produtos"></app-table>
+<app-table [dataSource]="produtos" (remove)="onhandlerRemoved($event)"></app-table>

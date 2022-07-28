@@ -17,7 +17,6 @@ export class FormComponent implements OnInit {
     }
   }
 
-
   @Output() submit = new EventEmitter<{descricao: string}>();
 
   constructor(private fb: FormBuilder) { }

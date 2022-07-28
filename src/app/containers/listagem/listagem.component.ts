@@ -29,4 +29,14 @@ export class ListagemComponent implements OnInit {
       console.log('Produtos carregados!');
     });
   }
+
+  onhandlerRemoved(id: string): void {
+    this.produtosService.remove(id).subscribe(() => {
+
+    }, err => {
+      throw new Error(err);
+    }, () => {
+      this.getProducts();
+    })
+  }
 }

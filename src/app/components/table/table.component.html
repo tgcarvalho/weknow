@@ -28,7 +28,11 @@
         [routerLink]="['/', 'produto', element._id]">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" aria-label="remover">
+      <button 
+        mat-icon-button 
+        color="warn" 
+        aria-label="remover"
+        (click)="onhandlerRemoved(element._id)">
         <mat-icon>delete</mat-icon>
       </button>      
     </td>

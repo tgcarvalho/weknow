@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Produto } from 'src/app/interfaces/produto.model';
 
 @Component({
@@ -17,7 +17,13 @@ export class TableComponent implements OnInit {
     }
   }
 
+  @Output() remove = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {}
+
+  onhandlerRemoved(id: string): void {
+    this.remove.emit(id);
+  }
 }
