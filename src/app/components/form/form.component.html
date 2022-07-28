@@ -1,0 +1,20 @@
+<section [formGroup]="produtoForm">
+  <mat-form-field class="input-full" appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <input matInput  formControlName="descricao">
+  </mat-form-field>
+
+  <footer>
+    <button 
+    mat-raised-button 
+    color="basic" 
+    [routerLink]="'/produtos'">Voltar</button>
+    
+    <button 
+    type="submit"
+    mat-raised-button 
+    color="primary"
+    (click)="onSubmit()"
+    [disabled]="!produtoForm.valid">Salvar</button>
+  </footer>
+</section>

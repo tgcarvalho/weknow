@@ -1,0 +1,16 @@
+:host {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  .input-full {
+    width: 100%;
+  }
+
+  footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

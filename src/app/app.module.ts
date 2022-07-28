@@ -8,20 +8,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProdutoService } from './services/produto/produto.service';
 
 import { TableComponent } from './components/table/table.component';
 import { ListagemComponent } from './containers/listagem/listagem.component';
 import { ProdutoComponent } from './containers/produto/produto.component';
 import { MaterialModule } from './shared/material/material.module';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     ListagemComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { MaterialModule } from './shared/material/material.module';
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     MaterialModule
   ],
