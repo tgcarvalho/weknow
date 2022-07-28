@@ -8,7 +8,7 @@ import { Produto } from 'src/app/interfaces/produto.model';
 })
 export class TableComponent implements OnInit {
   produtos: Array<Produto> = [];
-  displayedColumns: string[] = ['id', 'descricao', 'quantidade', 'acao'];
+  displayedColumns: string[] = ['id', 'descricao', 'acao'];
 
   @Input() set dataSource(value: Array<Produto>) {
     const hasProduto = value
