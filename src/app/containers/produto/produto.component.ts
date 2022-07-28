@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from 'src/app/interfaces/produto.model';
+import { MessageService } from 'src/app/services/message/message.service';
 import { ProdutoService } from 'src/app/services/produto/produto.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class ProdutoComponent implements OnInit {
     private produtoService: ProdutoService,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -33,14 +35,14 @@ export class ProdutoComponent implements OnInit {
 
   onHandlerSubmit({descricao}: {descricao: string}):void {
     if(this.id){
-      this.produtoService.update(this.id, descricao).subscribe((resp)=>{
-        console.log(resp)
+      this.produtoService.update(this.id, descricao).subscribe(()=>{
+        this.messageService.open(`Produto alterado com sucesso`);
       }, err => {
         throw new Error(err);
       }, () => this.onBackList());
     } else {
-      this.produtoService.create(descricao).subscribe(resp => {
-        console.log(resp)
+      this.produtoService.create(descricao).subscribe(() => {
+        this.messageService.open(`Produto criado com sucesso`);
       }, err => {
         throw new Error(err);
       }, () => this.onBackList());
