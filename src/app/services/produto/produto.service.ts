@@ -20,6 +20,18 @@ export class ProdutoService {
 		return this.http.get<Produto>(`${this.url}/produtos/${id}`);
 	}
 
+  public create(descricao: string): Observable<Produto> {
+		return this.http.post<Produto>(`${this.url}/produtos/`, {
+      descricao
+    });
+	}
+
+  public update(id: string, descricao: string): Observable<Produto> {
+		return this.http.put<Produto>(`${this.url}/produtos/${id}`, {
+      descricao
+    });
+	}
+
   public remove(id: string): Observable<Produto> {
 		return this.http.delete<Produto>(`${this.url}/produtos/${id}`);
 	}

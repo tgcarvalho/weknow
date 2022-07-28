@@ -31,8 +31,23 @@ export class ProdutoComponent implements OnInit {
 			| null;
 	}
 
-  onHandlerSubmit(descricao: {descricao: string}):void {
-    console.log(this.id);
-    console.log(descricao);
+  onHandlerSubmit({descricao}: {descricao: string}):void {
+    if(this.id){
+      this.produtoService.update(this.id, descricao).subscribe((resp)=>{
+        console.log(resp)
+      }, err => {
+        throw new Error(err);
+      }, () => this.onBackList());
+    } else {
+      this.produtoService.create(descricao).subscribe(resp => {
+        console.log(resp)
+      }, err => {
+        throw new Error(err);
+      }, () => this.onBackList());
+    }
+  }
+
+  onBackList(): void {
+    this.router.navigate(['/', 'produtos'])
   }
 }
