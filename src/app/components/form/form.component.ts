@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,13 @@ export class FormComponent implements OnInit {
   produtoForm: FormGroup = this.fb.group({
     descricao: ["", Validators.required]
   });
+
+  @Input() set descricao(value: string) {
+    if(value) {
+      this.produtoForm.get('descricao')?.setValue(value);
+    }
+  }
+
 
   @Output() submit = new EventEmitter<{descricao: string}>();
 

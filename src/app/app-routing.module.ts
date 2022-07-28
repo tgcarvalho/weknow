@@ -6,8 +6,8 @@ import { ProdutoComponent } from './containers/produto/produto.component';
 const routes: Routes = [
   { path: '', redirectTo: 'produtos', pathMatch: 'full' },
   { path: 'produtos', component: ListagemComponent },
-  { path: 'novo', component: ProdutoComponent },
-  { path: 'editar', component: ProdutoComponent }
+  { path: 'produto', component: ProdutoComponent },
+  { path: 'produto/:id', component: ProdutoComponent }
 ];
 
 @NgModule({
